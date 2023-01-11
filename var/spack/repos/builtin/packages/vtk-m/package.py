@@ -181,6 +181,8 @@ class VtkM(CMakePackage, CudaPackage, ROCmPackage):
 
             # mpi support
             if "+mpi" in spec:
+                options.append(self.define("MPI_C_COMPILER", spec["mpi"].mpicc))
+                options.append(self.define("MPI_CXX_COMPILER", spec["mpi"].mpicxx))
                 if not spec.satisfies("@1.3.0:"):
                     raise InstallError(
                         "mpi is not supported for\
