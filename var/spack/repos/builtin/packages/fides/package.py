@@ -24,7 +24,8 @@ class Fides(CMakePackage):
     depends_on("cmake@3.14.1:3.14,3.18.2:", type="build")
 
     depends_on("mpi", when="+mpi")
-    depends_on("adios2~zfp")
+    depends_on("adios2")
+    depends_on("adios2~zfp", when="@:1.1")
     depends_on("vtk-m")
 
     # Fix missing implicit includes
