@@ -152,7 +152,7 @@ class EcpDataVisSdk(BundlePackage, CudaPackage, ROCmPackage):
     # Fortran support with ascent is problematic on some Cray platforms so the
     # SDK is explicitly disabling it until the issues are resolved.
     dav_sdk_depends_on(
-        "ascent+mpi+python+shared+vtkh+dray~test",
+        "ascent+mpi~fortran+python+shared+vtkh+dray~test",
         when="+ascent",
         propagate=["adios2", "cuda", "fortran"] + cuda_arch_variants,
     )
